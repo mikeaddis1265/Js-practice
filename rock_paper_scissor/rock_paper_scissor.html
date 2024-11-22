@@ -4,19 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>rock paper scissors</title>
+
+    <style>
+        body{
+            background-color: rgb(25,25,25);
+            color: white;
+            font-family: Arial;
+        }
+        .title{
+            font-size: 30px;
+            font-weight: bold;
+        }
+        .rock-img, .paper-img, .scissor-btn{
+            height: 50px;
+
+        }
+        .btn{
+            background-color: transparent;
+            border: 3px solid white;
+            width: 110px;
+            height: 110px;
+            border-radius: 55px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .result{
+            font-size: 25px;
+            font-weight: bold;
+            margin-top: 50px;
+        }
+
+        .move-icon{
+            height: 30px;
+
+        }
+        .scores{
+            margin-top: 60px;
+        }
+
+        .reset{
+            background-color: white;
+            border:none;
+            font-size: 15px;
+            padding: 8px 15px;
+            cursor:pointer;
+        }
+
+    </style>
 </head>
-<body style="background-color:rgba(213, 18, 18, 0.786);">
+<body>
 
     <p class="title">Rock paper Scissors</p>
-        <button onclick="play('rock')">Rock</button>
-        <button onclick="play('paper')">Paper</button> 
-        <button onclick="play('scissor')">Scissors</button>
+        <button class="btn" onclick="play('rock')" ><img class="rock-img" src="img/rock-emoji.png"></button>
+        <button class="btn" onclick="play('paper')"><img class="paper-img" src="img/paper-emoji.png"></button> 
+        <button class= "btn" onclick="play('scissor')"><img class="scissor-btn" src="img/scissor-emoji.png"></button>
 
         <p class="result"></p>
         <p class="moves"></p>
         <p class="scores"></p>
         
-        <button onclick="reset()">Reset</button>
+        <button class="reset" onclick="reset()">Reset</button>
     
 
     <script>
@@ -64,7 +111,11 @@
                 update(result);
                 localStorage.setItem('score', JSON.stringify(score));
                 tellResult();
-                document.querySelector('.moves').innerHTML = `You ${yourMove} - ${move} Computer`;
+                document.querySelector('.moves').innerHTML = `
+                You
+                    <img class="move-icon" src="img/${yourMove}-emoji.png">
+                    <img class="move-icon" src="img/${move}-emoji.png">
+                Computer`;
                 tellScore();
                 
 

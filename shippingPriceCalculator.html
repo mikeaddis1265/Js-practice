@@ -4,14 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Shipping price Calculator</title>
+    <style>
+        body{
+            font-family: Arial;
+        }
+
+        .input{
+            font-size: 14px;
+            padding:8px;
+            
+        }
+
+        .calc-btn{
+            background-color: green;
+            cursor: pointer;
+            color: white;
+            border: none;
+            font-size: 15px;
+            padding: 8px;
+
+        }
+    </style>
 </head>
 <body>
     <p>Amazon Shipping Calculator</p>
-    <input class="input" pl  paceholder="Cost of order" onkeydown="handleCostKeydown(event)">
-    <button onclick="calc();">Calculate</button>
+    <input class="input" pl  placeholder="Cost of order" onkeydown="handleCostKeydown(event)">
+    <button onclick="calc();" class="calc-btn">Calculate</button>
     <p class="totalCost"></p>
 
     <script>
+
+        /*
+        window.alert();
+        window.document();
+        window.console();
+        */
+
 
         function handleCostKeydown(event){
             if(event.key === 'Enter')
